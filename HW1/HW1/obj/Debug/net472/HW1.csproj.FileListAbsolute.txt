@@ -1,0 +1,9 @@
+C:\Users\Yaroslav.Sviridov\RiderProjects\OptimisationMetods\HW1\HW1\bin\Debug\net472\HW1.exe.config
+C:\Users\Yaroslav.Sviridov\RiderProjects\OptimisationMetods\HW1\HW1\bin\Debug\net472\HW1.exe
+C:\Users\Yaroslav.Sviridov\RiderProjects\OptimisationMetods\HW1\HW1\bin\Debug\net472\HW1.pdb
+C:\Users\Yaroslav.Sviridov\RiderProjects\OptimisationMetods\HW1\HW1\obj\Debug\net472\HW1.csprojAssemblyReference.cache
+C:\Users\Yaroslav.Sviridov\RiderProjects\OptimisationMetods\HW1\HW1\obj\Debug\net472\HW1.AssemblyInfoInputs.cache
+C:\Users\Yaroslav.Sviridov\RiderProjects\OptimisationMetods\HW1\HW1\obj\Debug\net472\HW1.AssemblyInfo.cs
+C:\Users\Yaroslav.Sviridov\RiderProjects\OptimisationMetods\HW1\HW1\obj\Debug\net472\HW1.csproj.CoreCompileInputs.cache
+C:\Users\Yaroslav.Sviridov\RiderProjects\OptimisationMetods\HW1\HW1\obj\Debug\net472\HW1.exe
+C:\Users\Yaroslav.Sviridov\RiderProjects\OptimisationMetods\HW1\HW1\obj\Debug\net472\HW1.pdb
