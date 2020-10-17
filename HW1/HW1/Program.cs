@@ -16,6 +16,12 @@ namespace HW1
 
         protected void UpdateInterval(ref double l, ref double r, double x1, double x2, double y1, double y2)
         {
+            if (x1 > x2)
+            {
+                (x1, x2) = (x2, x1);
+                (y1, y2) = (y2, y1);
+            }
+            
             if (y1 > y2)
             {
                 l = x1;
@@ -159,6 +165,46 @@ namespace HW1
             return "FibonacciMethod";
         }
     }
+
+    public class ParabolasMethod : OptimizationMethod
+    {
+        public ParabolasMethod(double epsilon) : base(epsilon) { }
+
+        public override (double X, double Y) FindMinimum(Func<double, double> f, double l, double r)
+        {
+            Dictionary<double, double> cache = new Dictionary<double, double>();
+
+            while (Math.Abs(r - l) > Epsilon)
+            {
+                double x2 = (r + l) / 2;
+                double y1 = Ask(l), y2 = Ask(x2), y3 = Ask(r);
+
+                double numerator = (x2 - l) * (x2 - l) * (y2 - y3) - (x2 - r) * (x2 - r) * (y2 - y1);
+                double denominator = 2 * ((x2 - l) * (y2 - y3) - (x2 - r) * (y2 - y1));
+                double u = x2 - numerator / denominator;
+                double yu = Ask(u);
+                UpdateInterval(ref l, ref r, x2, u, y2, yu);
+            }
+            
+            double answerX = (r + l) / 2;
+            double answerY = f(answerX);
+            return (answerX, answerY);
+
+            double Ask(double x)
+            {
+                if (!cache.ContainsKey(x))
+                {
+                    cache[x] = f(x);
+                }
+                return cache[x];
+            }
+        }
+
+        public override string ToString()
+        {
+            return "ParabolasMethod";
+        }
+    }
     
     public class Program
     {
@@ -180,7 +226,12 @@ namespace HW1
             
             double epsilon = 1e-5;
             OptimizationMethod[] methods =
-                {new DichotomyMethod(epsilon), new GoldenSectionMethod(epsilon), new FibonacciMethod(epsilon)};
+            {
+                new DichotomyMethod(epsilon), 
+                new GoldenSectionMethod(epsilon), 
+                new FibonacciMethod(epsilon), 
+                new ParabolasMethod(epsilon)
+            };
 
             foreach (var query in queries)
             {
